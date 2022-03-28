@@ -1,24 +1,59 @@
-# README
+# <リフレクションノート>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+『リフレクション 自分とチームの成長を加速させる 内省の技術』(著:熊平美香)より、メタ認知のフレームワークを使用した個人用メモサイト
+<...>
 
-Things you may want to cover:
+### サイトテーマ
+その時々の自己または、他者の思考の記録
+<...>
 
-* Ruby version
+### テーマを選んだ理由
+実用書など、実際に自分でやってみる必要があるような内容が書かれた本を読んだ際に、
+やり方は書いてあるけどやるのが億劫になるということがある。
+それは、わざわざ紙とペンを用意しなくてはいけなかったり、書いたとしてもそれをファイルなどにしてまとめておくのが面倒になるからだと感じた。
+そこで、実際にそれ用に使うアプリを作ることで、その煩わしさが軽減できると思い、作ることにした。
 
-* System dependencies
+『リフレクション 自分とチームの成長を加速させる 内省の技術』(著:熊平美香)という本を読んだ際に、
+認知の4点セットと呼ばれる（意見・経験・感情・価値観）で切り分けられたメタ認知のフレームワークを使用して
+自分や他人の考えをメモしたいと思った。
 
-* Configuration
+[意見]
+認知の4点セットのフレームワークを搭載したメモアプリがあれば、記録や振り返りが楽になる。
 
-* Database creation
+[経験]
+・紙とペンで書くこともできるが、まとめにくかったり、書いた紙をなくしてしまうことがある。
+・既存のメモ帳アプリで書いてまとめることもできるが、自分で使い方を指定したりするのが面倒だったことがある。
 
-* Database initialization
+[感情]
+フラストレーション、面倒
 
-* How to run the test suite
+[価値観]
+もっと楽にしたい
 
-* Services (job queues, cache servers, search engines, etc.)
+<...>
 
-* Deployment instructions
+### ターゲットユーザ
+本の読者、認知の4点セットの考え方を習慣的に使えるようにしたい人
+<...>
 
-* ...
+### 主な利用シーン
+自分または、他人の考えをまとめるとき、またそれを振り返るときに利用する。
+<...>
+
+## 設計書
+<...>
+
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
