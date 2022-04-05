@@ -1,0 +1,28 @@
+<h2>ノート詳細</h2>
+
+<table>
+  <tr>
+    <td>意見</td>
+    <td><%= @note.opinion %></td>
+  </tr>
+
+  <tr>
+    <td>経験</td>
+    <td><%= @note.experience %></td>
+  </tr>
+
+  <tr>
+    <td>感情</td>
+    <td><%= @note.emotion %></td>
+  </tr>
+
+  <tr>
+    <td>価値観</td>
+    <td><%= @note.value %></td>
+  </tr>
+
+  <tr>
+    <td><%= link_to "編集", edit_note_path(@note.id) %></td>
+    <td><%= link_to "削除", note_path(@note.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  </tr>
+</table>

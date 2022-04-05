@@ -1,0 +1,29 @@
+<h2>ノート作成</h2>
+
+<table>
+  <%= form_with model: @note, url: notes_path, method: :post do |f| %>
+  <tr>
+    <td>意見</td>
+    <td><%= f.text_field :opinion, placeholder: "意見はなんですか？" %></td>
+  </tr>
+
+  <tr>
+    <td>経験</td>
+    <td><%= f.text_field :experience, placeholder: "その意見に基づく経験はなんですか？" %></td>
+  </tr>
+
+  <tr>
+    <td>感情</td>
+    <td><%= f.text_field :emotion, placehodler: "その経験はどんな感情を覚えましたか？" %></td>
+  </tr>
+
+  <tr>
+    <td>価値観</td>
+    <td><%= f.text_field :value, placehodler: "意見、経験、感情を踏まえてどんな価値観があると思いますか？" %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.submit "登録" %> </td>
+  </tr>
+  <% end %>
+</table>

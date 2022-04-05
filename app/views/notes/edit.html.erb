@@ -1,0 +1,29 @@
+<h2>ノート編集</h2>
+
+<table>
+  <%= form_with model: @note, url: note_path(@note.id), method: :patch do |f| %>
+  <tr>
+    <td>意見</td>
+    <td><%= f.text_field :opinion %></td>
+  </tr>
+
+  <tr>
+    <td>経験</td>
+    <td><%= f.text_field :experience %></td>
+  </tr>
+
+  <tr>
+    <td>感情</td>
+    <td><%= f.text_field :emotion %></td>
+  </tr>
+
+  <tr>
+    <td>価値観</td>
+    <td><%= f.text_field :value %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.submit "変更を保存" %></td>
+  </tr>
+  <% end %>
+</table>
