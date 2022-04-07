@@ -18,6 +18,9 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
     @memo = Memo.new
     @memos = current_user.memos.all
+    
+    @book_marks = current_user.book_marks.all
+    @book_mark_detail = BookMarkDetail.new
   end
 
   def edit

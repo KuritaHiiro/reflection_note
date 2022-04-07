@@ -1,1 +1,20 @@
 <h2><%= @book_mark.name %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>作成日</th>
+      <th>意見</th>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @book_mark_details.each do |book_mark_detail| %>
+    <tr>
+      <td><%= book_mark_detail.note.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= link_to book_mark_detail.note.opinion, note_path(book_mark_detail.note.id) %></td>
+      <td><%= link_to "削除", book_mark_detail_path(book_mark_detail.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

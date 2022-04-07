@@ -14,6 +14,7 @@ class BookMarksController < ApplicationController
 
   def show
     @book_mark = BookMark.find(params[:id])
+    @book_mark_details = @book_mark.book_mark_details
   end
 
   def update
