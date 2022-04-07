@@ -1,0 +1,25 @@
+<h2>ブックマーク</h2>
+
+<table>
+  <%= form_with model: @book_mark, url: book_marks_path, method: :post do |f| %>
+  <tr>
+    <td>新規作成</td>
+    <td><%= f.text_field :name %></td>
+    <td><%= f.submit "保存" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>ブックマーク</th>
+    <td></td>
+  </tr>
+
+  <% @book_marks.each do |book_mark| %>
+  <tr>
+    <td><%= link_to book_mark.name, book_mark_path(book_mark.id) %></td>
+    <td><%= link_to "削除", book_mark_path(book_mark.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+  </tr>
+  <% end %>
+</table>

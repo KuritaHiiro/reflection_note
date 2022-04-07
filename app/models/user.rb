@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :notes, dependent: :destroy
+  has_many :memos, dependent: :destroy
+  has_many :book_marks, dependent: :destroy
 end

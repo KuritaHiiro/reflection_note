@@ -16,6 +16,8 @@ class NotesController < ApplicationController
 
   def show
     @note = Note.find(params[:id])
+    @memo = Memo.new
+    @memos = current_user.memos.all
   end
 
   def edit

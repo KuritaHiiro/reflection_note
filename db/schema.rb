@@ -10,14 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_05_024241) do
+ActiveRecord::Schema.define(version: 2022_04_06_100222) do
+
+  create_table "book_mark_details", force: :cascade do |t|
+    t.integer "note_id"
+    t.integer "book_mark_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "book_marks", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memos", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "note_id"
+    t.string "memo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "notes", force: :cascade do |t|
     t.integer "user_id"
-    t.string "opinion"
-    t.string "experience"
-    t.string "emotion"
-    t.string "value"
+    t.text "opinion"
+    t.text "experience"
+    t.text "emotion"
+    t.text "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

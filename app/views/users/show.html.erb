@@ -16,6 +16,11 @@
   </tr>
 
   <tr>
+    <th>ノート数</th>
+    <td><%= @user.notes.count %></td>
+  </tr>
+
+  <tr>
     <td><%= link_to "編集", edit_user_path %></td>
   </tr>
 </table>
