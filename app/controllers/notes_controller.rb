@@ -12,13 +12,14 @@ class NotesController < ApplicationController
 
   def index
     @notes = current_user.notes.all
+    @user = current_user
   end
 
   def show
     @note = Note.find(params[:id])
     @memo = Memo.new
     @memos = current_user.memos.all
-    
+
     @book_marks = current_user.book_marks.all
     @book_mark_detail = BookMarkDetail.new
   end

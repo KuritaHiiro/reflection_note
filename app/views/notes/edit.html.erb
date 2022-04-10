@@ -1,29 +1,54 @@
-<h2>ノート編集</h2>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h2>ノート編集</h2>
+    </div>
+  </div>
 
-<table>
   <%= form_with model: @note, url: note_path(@note.id), method: :patch do |f| %>
-  <tr>
-    <td>意見</td>
-    <td><%= f.text_field :opinion %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "意見", class: "form-label" %><br>
+        <%= f.text_area :opinion, class: "form-control mb-3" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>経験</td>
-    <td><%= f.text_field :experience %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "経験", class: "form-label" %><br>
+        <%= f.text_area :experience, class: "form-control mb-3" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>感情</td>
-    <td><%= f.text_field :emotion %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "感情", class: "form-label" %><br>
+        <%= f.text_area :emotion, class: "form-control mb-3" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>価値観</td>
-    <td><%= f.text_field :value %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "価値観", class: "form-label" %><br>
+        <%= f.text_area :value, class: "form-control mb-3" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td><%= f.submit "変更を保存" %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="actions">
+        <%= link_to "戻る", note_path(@note.id), class: "btn btn-secondary mt-3" %>
+        <%= f.submit "変更を保存", class: "btn btn-success mt-3" %>
+      </div>
+    </div>
+  </div>
   <% end %>
-</table>
+</div>

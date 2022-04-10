@@ -1,51 +1,76 @@
-<h2>ノート詳細</h2>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h2>ノート詳細</h2>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <td>意見</td>
-    <td><%= @note.opinion %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <table>
+        <tr>
+          <th>意見</th>
+          <td><%= @note.opinion %></td>
+        </tr>
 
-  <tr>
-    <td>経験</td>
-    <td><%= @note.experience %></td>
-  </tr>
+        <tr>
+          <th>経験</th>
+          <td><%= @note.experience %></td>
+        </tr>
 
-  <tr>
-    <td>感情</td>
-    <td><%= @note.emotion %></td>
-  </tr>
+        <tr>
+          <th>感情</th>
+          <td><%= @note.emotion %></td>
+        </tr>
 
-  <tr>
-    <td>価値観</td>
-    <td><%= @note.value %></td>
-  </tr>
+        <tr>
+          <th>価値観</th>
+          <td><%= @note.value %></td>
+        </tr>
 
-  <tr>
-    <td><%= link_to "編集", edit_note_path(@note.id) %></td>
-    <td><%= link_to "削除", note_path(@note.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-  </tr>
-</table>
+        <tr>
+          <td></td>
+          <td><%= link_to "編集", edit_note_path(@note.id), class: "btn btn-success" %></td>
+          <td><%= link_to "削除", note_path(@note.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
+        </tr>
+      </table>
+    </div>
 
-<h2>ブックマーク</h2>
-<%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
-  <%= f.hidden_field :note_id, :value => @note.id %>
-  <%= f.collection_select(:book_mark_id, @book_marks, :id, :name, prompt: "--選択してください--") %>
-  <%= f.submit "ブックマークに追加" %>
-<% end %>
+    <div class="col">
+      <h2>ブックマーク</h2>
+      <%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
+        <%= f.hidden_field :note_id, :value => @note.id %>
+        <%= f.collection_select(:book_mark_id, @book_marks, :id, :name, prompt: "--選択してください--") %>
+        <%= f.submit "ブックマークに追加" %>
+      <% end %>
+    </div>
+  </div>
 
-<h4>メモ</h4>
-<table>
-  <% @note.memos.each do |memo| %>
-  <tr>
-    <td><%= memo.created_at.strftime('%Y/%m/%d') %></td>
-    <td><%= memo.memo %></td>
-    <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete %></td>
-  </tr>
-  <% end %>
-</table>
+  <div class="row mt-3">
+    <div class="col">
+      <h4>メモ</h4>
+      <table>
+        <% @note.memos.each do |memo| %>
+        <tr>
+          <td><%= memo.created_at.strftime('%Y/%m/%d') %></td>
+          <td><%= memo.memo %></td>
+          <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 
-<%= form_with model: [@note,@memo] do |f| %>
-  <%= f.text_area :memo, placeholder: "メモ" %>
-  <%= f.submit "メモ追加" %>
-<% end %>
+  <div class="row">
+    <div class="col">
+      <table>
+        <%= form_with model: [@note,@memo] do |f| %>
+        <tr>
+          <td><%= f.text_area :memo, placeholder: "メモ", class: "form_control" %></td>
+          <td><%= f.submit "メモ追加", class: "btn btn-outline-info" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,29 +1,56 @@
-<h2>ノート作成</h2>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h2>ノート作成</h2>
+    </div>
+  </div>
 
-<table>
   <%= form_with model: @note, url: notes_path, method: :post do |f| %>
-  <tr>
-    <td>意見</td>
-    <td><%= f.text_field :opinion, placeholder: "意見はなんですか？" %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "意見", class: "label" %><br>
+        <%= f.text_area :opinion, placeholder: "意見はなんですか？", class: "form-control" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>経験</td>
-    <td><%= f.text_field :experience, placeholder: "その意見に基づく経験はなんですか？" %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "経験", class: "label" %><br>
+        <%= f.text_area :experience, placeholder: "その意見に基づく経験はなんですか？", class: "form-control" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>感情</td>
-    <td><%= f.text_field :emotion, placehodler: "その経験はどんな感情を覚えましたか？" %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "感情", class: "label" %><br>
+        <%= f.text_area :emotion, placeholder: "その経験はどんな感情を覚えましたか？", class: "form-control" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td>価値観</td>
-    <td><%= f.text_field :value, placehodler: "意見、経験、感情を踏まえてどんな価値観があると思いますか？" %></td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="field">
+        <%= f.label "価値観", class: "label" %><br>
+        <%= f.text_area :value, placeholder: "意見、経験、感情を踏まえてどんな価値観があると思いますか？", class: "form-control" %>
+      </div>
+    </div>
+  </div>
 
-  <tr>
-    <td><%= f.submit "登録" %> </td>
-  </tr>
+  <div class="row">
+    <div class="col">
+      <div class="actions">
+        <%= link_to "戻る", notes_path, class: "btn btn-info mt-3" %>
+        <%= f.submit "登録", class: "btn btn-success mt-3" %>
+      </div>
+    </div>
+  </div>
+
   <% end %>
-</table>
+</div>
+

@@ -1,18 +1,43 @@
-<h2>ノート一覧</h2>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h2>ノート一覧</h2>
+    </div>
 
-<table>
-  <tr>
-    <td>作成日</td>
-    <td>意見</td>
-    <td></td>
-  </tr>
+    <div class="col">
+      <%= link_to "ノート作成", new_note_path %>
+    </div>
 
-  <% @notes.each do |note| %>
-  <tr>
-    <td><%= note.created_at.strftime('%Y/%m/%d') %></td>
-    <td><%= link_to note.opinion, note_path(note.id) %></td>
-  </tr>
-  <% end %>
-</table>
+    <div class="col">
+      <table>
+        <tr>
+          <td>ノート数：</td>
+          <td><%= @user.notes.count %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-<%= link_to "ノート作成", new_note_path %>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>作成日</td>
+            <td>意見</td>
+            <td></td>
+          </tr>
+        </thead>
+
+        <% @notes.each do |note| %>
+        <tbody>
+          <tr>
+            <td><%= note.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= link_to note.opinion, note_path(note.id) %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
