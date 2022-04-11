@@ -6,12 +6,15 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     @note.user_id = current_user.id
-    @note.save
-    redirect_to note_path(@note.id)
+    if @note.save
+      redirect_to note_path(@note.id)
+    else
+      render :new
+    end
   end
 
   def index
-    @notes = current_user.notes.all
+    @notes = current_user.notes.page(params[:page]).per(8)
     @user = current_user
   end
 
@@ -30,8 +33,11 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    @note.update(note_params)
-    redirect_to note_path(@note.id)
+    if @note.update(note_params)
+      redirect_to note_path(@note.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

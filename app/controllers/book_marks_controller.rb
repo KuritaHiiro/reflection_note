@@ -8,8 +8,13 @@ class BookMarksController < ApplicationController
   def create
     @bookmark = BookMark.new(book_mark_params)
     @bookmark.user_id = current_user.id
-    @bookmark.save
-    redirect_to book_marks_path
+    if @bookmark.save
+      redirect_to book_marks_path
+    else
+      @book_marks = current_user.book_marks.all
+      @book_mark = BookMark.new
+      render :index
+    end
   end
 
   def show
@@ -20,7 +25,7 @@ class BookMarksController < ApplicationController
   def update
     @bookmark = BookMark.find(params[:id])
     @bookmark.update(book_mark_params)
-    redirect_to book_marks_path
+    redirect_to book_mark_path(@bookmark.id)
   end
 
   def destroy

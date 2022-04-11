@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col">
-      <table>
+      <table class="table table-bordered">
         <tr>
           <th>意見</th>
           <td><%= @note.opinion %></td>
@@ -27,34 +27,33 @@
           <th>価値観</th>
           <td><%= @note.value %></td>
         </tr>
-
-        <tr>
-          <td></td>
-          <td><%= link_to "編集", edit_note_path(@note.id), class: "btn btn-success" %></td>
-          <td><%= link_to "削除", note_path(@note.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
-        </tr>
       </table>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <%= link_to "編集", edit_note_path(@note.id), class: "btn btn-success" %>
     </div>
 
     <div class="col">
-      <h2>ブックマーク</h2>
+      <p>ブックマーク</p>
       <%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
         <%= f.hidden_field :note_id, :value => @note.id %>
         <%= f.collection_select(:book_mark_id, @book_marks, :id, :name, prompt: "--選択してください--") %>
-        <%= f.submit "ブックマークに追加" %>
+        <%= f.submit "ブックマークに追加", class: "btn btn-info" %>
       <% end %>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col">
-      <h4>メモ</h4>
       <table>
         <% @note.memos.each do |memo| %>
         <tr>
           <td><%= memo.created_at.strftime('%Y/%m/%d') %></td>
           <td><%= memo.memo %></td>
-          <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete %></td>
+          <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete, class: "text-danger" %></td>
         </tr>
         <% end %>
       </table>
@@ -63,14 +62,17 @@
 
   <div class="row">
     <div class="col">
-      <table>
-        <%= form_with model: [@note,@memo] do |f| %>
-        <tr>
-          <td><%= f.text_area :memo, placeholder: "メモ", class: "form_control" %></td>
-          <td><%= f.submit "メモ追加", class: "btn btn-outline-info" %></td>
-        </tr>
-        <% end %>
-      </table>
+      <div class="field">
+        <table>
+          <%= form_with model: [@note,@memo] do |f| %>
+          <tr>
+            <td><%= f.text_area :memo, placeholder: "メモ", class: "form_control" %></td>
+            <td><%= f.submit "メモ追加", class: "btn btn-outline-info" %></td>
+          </tr>
+          <% end %>
+        </table>
+
+      </div>
     </div>
   </div>
 </div>

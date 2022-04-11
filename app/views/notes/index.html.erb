@@ -5,7 +5,11 @@
     </div>
 
     <div class="col">
-      <%= link_to "ノート作成", new_note_path %>
+      <ul>
+        <li class="nav nav-item">
+          <i class="fa-solid fa-file-pen"></i><%= link_to "新規ノート作成", new_note_path %>
+        </li>
+      </ul>
     </div>
 
     <div class="col">
@@ -21,7 +25,7 @@
   <div class="row">
     <div class="col">
       <table class="table">
-        <thead>
+        <thead class="table-info">
           <tr>
             <td>作成日</td>
             <td>意見</td>
@@ -33,11 +37,18 @@
         <tbody>
           <tr>
             <td><%= note.created_at.strftime('%Y/%m/%d') %></td>
-            <td><%= link_to note.opinion, note_path(note.id) %></td>
+            <td><%= link_to note.opinion.truncate(20), note_path(note.id) %></td>
+            <td><%= link_to "削除", note_path(note.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %></td>
           </tr>
         </tbody>
         <% end %>
       </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= paginate @notes %>
     </div>
   </div>
 </div>
