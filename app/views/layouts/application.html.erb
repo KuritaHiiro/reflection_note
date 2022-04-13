@@ -21,7 +21,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto justify-content-end">
               <% if user_signed_in? %>
               <li class="nav-item">
                 <%= link_to "ユーザー情報", user_path, class: "text-white" %>
@@ -69,7 +69,13 @@
       <%= yield %>
     </main>
     <footer class="bg-info text-white pt-5 bd-4">
-
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <p>©︎Reflection Note</p>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

@@ -1,6 +1,6 @@
 class BookMarksController < ApplicationController
   def index
-    @book_marks = current_user.book_marks.all
+    @book_marks = current_user.book_marks.page(params[:page]).per(8)
     @book_mark = BookMark.new
     #@book_mark_detail.book_mark_id = @book_mark.id
   end
@@ -11,7 +11,7 @@ class BookMarksController < ApplicationController
     if @bookmark.save
       redirect_to book_marks_path
     else
-      @book_marks = current_user.book_marks.all
+      @book_marks = current_user.book_marks.page(params[:page]).per(8)
       @book_mark = BookMark.new
       render :index
     end

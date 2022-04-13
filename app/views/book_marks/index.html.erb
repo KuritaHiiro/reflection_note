@@ -8,9 +8,8 @@
       <table>
         <%= form_with model: @book_mark, url: book_marks_path, method: :post do |f| %>
         <tr>
-          <td>新規作成</td>
-          <td><%= f.text_field :name %></td>
-          <td><%= f.submit "保存" %></td>
+          <td><%= f.text_field :name, class: "form-control" %></td>
+          <td><%= f.submit "新規ブックマーク作成", class: "btn btn-info" %></td>
         </tr>
         <% end %>
       </table>
@@ -25,15 +24,24 @@
     </div>
   </div>
 
-  <div class="row mt-3">
+  <div class="row justify-content-md-center mt-3">
     <% @book_marks.each do |book_mark| %>
-    <div class="col-2 m-5">
-      <%= book_mark.created_at.strftime('%Y/%m/%d') %><br>
-      <strong><%= link_to book_mark.name.truncate(8), book_mark_path(book_mark.id) %></strong><br>
-      <%= link_to "削除", book_mark_path(book_mark.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "text-danger" %>
+    <div class="col-md-auto m-5">
+      <div class="card">
+        <%= book_mark.created_at.strftime('%Y/%m/%d') %><br>
+        <strong><%= link_to book_mark.name.truncate(8), book_mark_path(book_mark.id) %></strong><br>
+        <%= link_to "削除", book_mark_path(book_mark.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "text-danger" %>
+      </div>
     </div>
     <% end %>
   </div>
+
+  <div class="row">
+    <div class="col">
+      <%= paginate @book_marks %>
+    </div>
+  </div>
+</div>
 
 
 
