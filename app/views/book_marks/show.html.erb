@@ -3,6 +3,17 @@
     <div class="col">
       <h2><%= @book_mark.name %></h2>
     </div>
+
+    <%= form_with model: @book_mark, url: book_mark_path(@book_mark.id), method: :patch do |f| %>
+    <div class="col">
+      <table>
+        <tr>
+          <td><%= f.text_field :name, class: "form-control" %></td>
+          <td><%= f.submit "ブックマーク名変更", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    </div>
+    <% end %>
   </div>
 
   <div class="row mt-3">

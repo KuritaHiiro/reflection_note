@@ -9,22 +9,22 @@
     <div class="col">
       <table class="table table-bordered">
         <tr>
-          <th>意見</th>
+          <th class="table-info">意見</th>
           <td><%= @note.opinion %></td>
         </tr>
 
         <tr>
-          <th>経験</th>
+          <th class="table-info">経験</th>
           <td><%= @note.experience %></td>
         </tr>
 
         <tr>
-          <th>感情</th>
+          <th class="table-info">感情</th>
           <td><%= @note.emotion %></td>
         </tr>
 
         <tr>
-          <th>価値観</th>
+          <th class="table-info">価値観</th>
           <td><%= @note.value %></td>
         </tr>
       </table>
@@ -33,22 +33,21 @@
 
   <div class="row mt-3">
     <div class="col">
-      <%= link_to "編集", edit_note_path(@note.id), class: "btn btn-success" %>
+      <%= link_to "編集", edit_note_path(@note.id), class: "btn btn-outline-success" %>
     </div>
 
     <div class="col">
-      <p>ブックマーク</p>
       <%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
         <%= f.hidden_field :note_id, :value => @note.id %>
-        <%= f.collection_select(:book_mark_id, @book_marks, :id, :name, prompt: "--選択してください--") %>
-        <%= f.submit "ブックマークに追加", class: "btn btn-info" %>
+        <%= f.collection_select(:book_mark_id, @book_marks, :id, :name) %>
+        <%= f.submit "ブックマークに追加", class: "btn btn-outline-info" %>
       <% end %>
     </div>
   </div>
 
   <div class="row mt-3">
     <div class="col">
-      <table>
+      <table class="table">
         <% @note.memos.each do |memo| %>
         <tr>
           <td><%= memo.created_at.strftime('%Y/%m/%d') %></td>
@@ -63,7 +62,7 @@
   <div class="row">
     <div class="col">
       <div class="field">
-        <table>
+        <table class="table">
           <%= form_with model: [@note,@memo] do |f| %>
           <tr>
             <td><%= f.text_area :memo, placeholder: "メモ", class: "form_control" %></td>

@@ -2,7 +2,6 @@ class BookMarksController < ApplicationController
   def index
     @book_marks = current_user.book_marks.page(params[:page]).per(8)
     @book_mark = BookMark.new
-    #@book_mark_detail.book_mark_id = @book_mark.id
   end
 
   def create
@@ -23,9 +22,9 @@ class BookMarksController < ApplicationController
   end
 
   def update
-    @bookmark = BookMark.find(params[:id])
-    @bookmark.update(book_mark_params)
-    redirect_to book_mark_path(@bookmark.id)
+    @book_mark = BookMark.find(params[:id])
+    @book_mark.update(book_mark_params)
+    redirect_to book_mark_path(@book_mark.id)
   end
 
   def destroy

@@ -1,15 +1,15 @@
 <div class="container">
-  <div class="row mt-5">
-    <div class="col">
+  <div class="row justify-content-md-center mt-5">
+    <div class="col-md-auto">
       <h2><strong>ブックマーク</strong></h2>
     </div>
 
-    <div class="col">
+    <div class="col-md-auto">
       <table>
         <%= form_with model: @book_mark, url: book_marks_path, method: :post do |f| %>
         <tr>
           <td><%= f.text_field :name, class: "form-control" %></td>
-          <td><%= f.submit "新規ブックマーク作成", class: "btn btn-info" %></td>
+          <td><%= f.submit "新規ブックマーク作成", class: "btn btn-outline-info" %></td>
         </tr>
         <% end %>
       </table>
@@ -26,18 +26,18 @@
 
   <div class="row justify-content-md-center mt-3">
     <% @book_marks.each do |book_mark| %>
-    <div class="col-md-auto m-5">
-      <div class="card">
+    <div class="col-md-4 m-5">
+      <div class="card text-white bg-info">
         <%= book_mark.created_at.strftime('%Y/%m/%d') %><br>
-        <strong><%= link_to book_mark.name.truncate(8), book_mark_path(book_mark.id) %></strong><br>
-        <%= link_to "削除", book_mark_path(book_mark.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "text-danger" %>
+        <strong><%= link_to book_mark.name.truncate(8), book_mark_path(book_mark.id), class: "text-white stretched-link" %></strong>
       </div>
+      <%= link_to "削除", book_mark_path(book_mark.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "text-danger" %>
     </div>
     <% end %>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
       <%= paginate @book_marks %>
     </div>
   </div>
