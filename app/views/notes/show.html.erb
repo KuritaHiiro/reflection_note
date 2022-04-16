@@ -45,14 +45,14 @@
     </div>
   </div>
 
-  <div class="row mt-3">
+  <div class="row mt-5">
     <div class="col">
       <table class="table">
         <% @note.memos.each do |memo| %>
         <tr>
           <td><%= memo.created_at.strftime('%Y/%m/%d') %></td>
           <td><%= memo.memo %></td>
-          <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete, class: "text-danger" %></td>
+          <td><%= link_to "削除", note_memo_path(memo.note, memo), method: :delete, class: "btn btn-outline-danger btn-sm" %></td>
         </tr>
         <% end %>
       </table>
@@ -61,16 +61,23 @@
 
   <div class="row">
     <div class="col">
-      <div class="field">
-        <table class="table">
-          <%= form_with model: [@note,@memo] do |f| %>
-          <tr>
-            <td><%= f.text_area :memo, placeholder: "メモ", class: "form_control" %></td>
-            <td><%= f.submit "メモ追加", class: "btn btn-outline-info" %></td>
-          </tr>
+      <% if @memo.errors.any? %>
+        <ul>
+          <% @memo.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
           <% end %>
-        </table>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 
+  <div class="row m-4">
+    <div class="col">
+      <div class="field">
+        <%= form_with model: [@note,@memo] do |f| %>
+          <%= f.text_field :memo, placeholder: "メモ", class: "form_control" %>
+          <%= f.submit "メモ追加", class: "btn btn-outline-info btn-sm" %>
+        <% end %>
       </div>
     </div>
   </div>

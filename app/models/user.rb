@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :notes, dependent: :destroy
   has_many :memos, dependent: :destroy
   has_many :book_marks, dependent: :destroy
+
+  validates :name, presence: true
+  validates :email, presence: true
 end
