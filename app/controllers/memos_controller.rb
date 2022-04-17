@@ -12,7 +12,7 @@ class MemosController < ApplicationController
 
       @book_marks = current_user.book_marks.all
       @book_mark_detail = BookMarkDetail.new
-      render template: "notes/show"
+      render "notes/show"
     end
   end
 

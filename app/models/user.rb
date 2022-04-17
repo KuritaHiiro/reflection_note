@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :book_marks, dependent: :destroy
 
   validates :name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true 
 end

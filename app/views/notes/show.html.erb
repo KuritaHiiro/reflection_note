@@ -31,11 +31,24 @@
     </div>
   </div>
 
+  <div class="row justify-content-md-center mt-5">
+    <div class="col-md-auto">
+      <% if @book_mark_detail.errors.any? %>
+        <ul>
+          <% @book_mark_detail.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row mt-3">
     <div class="col">
       <%= link_to "編集", edit_note_path(@note.id), class: "btn btn-outline-success" %>
     </div>
 
+    <% if @book_marks.present? %>
     <div class="col">
       <%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
         <%= f.hidden_field :note_id, :value => @note.id %>
@@ -43,6 +56,7 @@
         <%= f.submit "ブックマークに追加", class: "btn btn-outline-info" %>
       <% end %>
     </div>
+    <% end %>
   </div>
 
   <div class="row mt-5">
