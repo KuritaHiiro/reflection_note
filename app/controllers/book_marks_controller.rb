@@ -5,9 +5,9 @@ class BookMarksController < ApplicationController
   end
 
   def create
-    @bookmark = BookMark.new(book_mark_params)
-    @bookmark.user_id = current_user.id
-    if @bookmark.save
+    @book_mark = BookMark.new(book_mark_params)
+    @book_mark.user_id = current_user.id
+    if @book_mark.save
       redirect_to book_marks_path
     else
       @book_marks = current_user.book_marks.page(params[:page]).per(8)

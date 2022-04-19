@@ -3,10 +3,9 @@
     <div class="col">
       <h2>ノート作成</h2>
       <% if @note.errors.any? %>
-        <%= @note.errors.count %>件のエラーが発生しました
         <ul>
           <% @note.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="text-danger"><%= message %></li>
           <% end %>
         </ul>
       <% end %>
