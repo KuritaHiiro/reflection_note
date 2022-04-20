@@ -18,13 +18,15 @@ module ReflectionNote
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #config.i18n.default_locale = :ja
+    #config.i18n.load_path += Dir[Rails.root.join('config/locales/models/translation.yml').to_s]
   end
-  
-  config.generators do |g|
-    g.test_framework :rspec, 
-        view_specs: false, 
-        helper_specs: false, 
-        controller_specs: false, 
-        routing_specs: false
-  end
+
+  #config.generators do |g|
+    #g.test_framework :rspec,
+        #view_specs: false,
+        #helper_specs: false,
+        #controller_specs: false,
+        #routing_specs: false
+  #end
 end

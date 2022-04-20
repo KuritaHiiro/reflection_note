@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row justify-content-md-center mt-5">
     <div class="col-mt-center">
-      <h2>新規登録</h2>
+      <h2><strong>新規登録</strong></h2>
     </div>
   </div>
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="text-danger"><%= render "devise/shared/error_messages", resource: resource %></div>
 
   <div class="row">
     <div class="col-6">
@@ -54,5 +54,11 @@
     </div>
   </div>
   <% end %>
+
+  <div class="row mt-4">
+    <div class="col">
+      <p>既にアカウントをお持ちの方は<%= link_to "こちらから", new_user_session_path %></p>
+    </div>
+  </div>
 
 </div>

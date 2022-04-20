@@ -11,8 +11,8 @@ class BookMarksController < ApplicationController
       redirect_to book_marks_path
     else
       @book_marks = current_user.book_marks.page(params[:page]).per(8)
-      @book_mark = BookMark.new
       render :index
+      @book_mark = BookMark.new
     end
   end
 
@@ -23,8 +23,12 @@ class BookMarksController < ApplicationController
 
   def update
     @book_mark = BookMark.find(params[:id])
-    @book_mark.update(book_mark_params)
-    redirect_to book_mark_path(@book_mark.id)
+    if @book_mark.update(book_mark_params)
+      redirect_to book_mark_path(@book_mark.id)
+    else
+      @book_mark_details = @book_mark.book_mark_details
+      render :show
+    end
   end
 
   def destroy

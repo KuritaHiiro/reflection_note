@@ -61,3 +61,4 @@ gem 'devise'
 gem 'rubocop', require: false
 gem 'rubocop-rails'
 gem 'kaminari','~> 1.2.1'
+gem 'rails-i18n'

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col">
-      <h2>ノート詳細</h2>
+      <h2><strong>ノート詳細</strong></h2>
     </div>
   </div>
 
@@ -31,25 +31,13 @@
     </div>
   </div>
 
-  <div class="row justify-content-md-center mt-5">
-    <div class="col-md-auto">
-      <% if @book_mark_detail.errors.any? %>
-        <ul>
-          <% @book_mark_detail.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-
   <div class="row justify-content-md-center mt-3">
     <div class="col-md-auto">
       <%= link_to "編集", edit_note_path(@note.id), class: "btn btn-outline-success" %>
     </div>
 
     <% if @book_marks.present? %>
-    <div class="col">
+    <div class="col-md-auto">
       <%= form_with model: @book_mark_detail, url: book_mark_details_path, method: :post do |f| %>
         <%= f.hidden_field :note_id, :value => @note.id %>
         <%= f.collection_select(:book_mark_id, @book_marks, :id, :name) %>
@@ -80,21 +68,17 @@
     </div>
   </div>
 
-  <div class="row justify-content-md-center">
-    <div class="col-md-auto">
-      <% if @memo.errors.any? %>
-        <ul>
-          <% @memo.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
 
   <div class="row m-4">
     <div class="col">
       <div class="field">
+        <% if @memo.errors.any? %>
+        <ul>
+          <% @memo.errors.full_messages.each do |message| %>
+          <li class="text-danger"><%= message %></li>
+          <% end %>
+        </ul>
+        <% end %>
         <%= form_with model: [@note,@memo] do |f| %>
           <%= f.text_field :memo, placeholder: "メモ", class: "form_control" %>
           <%= f.submit "メモ追加", class: "btn btn-outline-info btn-sm" %>

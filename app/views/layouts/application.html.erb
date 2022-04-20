@@ -14,49 +14,49 @@
 
   <body class="d-flex flex-column vh-100">
     <header class="shadow-sm bg-info">
-      <nav class="navbar navbar-expend-lg navbar-light">
+      <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
           </button>
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto justify-content-end">
+            <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "ユーザー情報", user_path, class: "text-white" %>
+                <%= link_to "ユーザー情報", user_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ノート一覧", notes_path, class: "text-white" %>
+                <%= link_to "ノート一覧", notes_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ブックマーク", book_marks_path, class: "text-white" %>
+                <%= link_to "ブックマーク", book_marks_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "About", about_path, class: "text-white" %>
+                <%= link_to "About", about_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white m-3" %>
               </li>
               <% else %>
               <li class="nav-item">
-                <%= link_to "Top", root_path, class: "text-white" %>
+                <%= link_to "Top", root_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "About", about_path, class: "text-white" %>
+                <%= link_to "About", about_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path, class: "text-white" %>
+                <%= link_to "新規登録", new_user_registration_path, class: "text-white m-3" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "text-white" %>
+                <%= link_to "ログイン", new_user_session_path, class: "text-white m-3" %>
               </li>
               <% end %>
             </ul>
@@ -66,8 +66,6 @@
       </nav>
     </header>
     <main class="mb-auto">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
     <footer class="bg-info text-white pt-5 bd-4">

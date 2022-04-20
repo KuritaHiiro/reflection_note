@@ -9,10 +9,9 @@
         <tr>
           <td>
             <% if @book_mark.errors.any? %>
-              <%= @book_mark.errors.count %>件のエラーが発生しました
               <ul>
                 <% @book_mark.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                <li class="text-danger"><%= message %></li>
                 <% end %>
               </ul>
             <% end %>
