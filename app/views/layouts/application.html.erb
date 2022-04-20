@@ -24,39 +24,39 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
               <li class="nav-item">
-                <%= link_to "ユーザー情報", user_path, class: "text-white m-3" %>
+                <%= link_to "ユーザー情報", user_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ノート一覧", notes_path, class: "text-white m-3" %>
+                <%= link_to "ノート一覧", notes_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ブックマーク", book_marks_path, class: "text-white m-3" %>
+                <%= link_to "ブックマーク", book_marks_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "About", about_path, class: "text-white m-3" %>
+                <%= link_to "About", about_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white m-3" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white m-2 navbar-brand" %>
               </li>
               <% else %>
               <li class="nav-item">
-                <%= link_to "Top", root_path, class: "text-white m-3" %>
+                <%= link_to "Top", root_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "About", about_path, class: "text-white m-3" %>
+                <%= link_to "About", about_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "新規登録", new_user_registration_path, class: "text-white m-3" %>
+                <%= link_to "新規登録", new_user_registration_path, class: "text-white m-2 navbar-brand" %>
               </li>
 
               <li class="nav-item">
-                <%= link_to "ログイン", new_user_session_path, class: "text-white m-3" %>
+                <%= link_to "ログイン", new_user_session_path, class: "text-white m-2 navbar-brand" %>
               </li>
               <% end %>
             </ul>
