@@ -60,6 +60,7 @@
 
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1jpTIrFT-7h3L47Zifj5LuJAd4qra3zQlJpn3BlicPvY/edit?usp=sharing
 
 ## チャレンジ要素一覧
 
@@ -71,5 +72,4 @@ https://docs.google.com/spreadsheets/d/1Lh554CkkdkXe3p9gC9c_fuChlCYp7wOSbz8j2Sxx
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-検討中です。
+
