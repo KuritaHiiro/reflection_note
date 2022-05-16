@@ -60,6 +60,7 @@
 
 
 ## 設計書
+https://docs.google.com/spreadsheets/d/1jpTIrFT-7h3L47Zifj5LuJAd4qra3zQlJpn3BlicPvY/edit?usp=sharing
 
 ## チャレンジ要素一覧
 
