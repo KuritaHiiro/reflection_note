@@ -1,8 +1,7 @@
 class BookMarkDetailsController < ApplicationController
+
   def create
     @book_mark_detail = BookMarkDetail.new(book_mark_detail_params)
-    @book_mark_detail.note_id = @book_mark_detail.note.id
-    @book_mark_detail.book_mark_id = @book_mark_detail.book_mark.id
     if @book_mark_detail.save
       redirect_to book_mark_path(@book_mark_detail.book_mark.id)
     else

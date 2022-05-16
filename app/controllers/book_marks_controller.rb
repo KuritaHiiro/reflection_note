@@ -1,7 +1,9 @@
 class BookMarksController < ApplicationController
+  before_action :private_url, only:[:show, :update]
+
   def index
-    @book_marks = current_user.book_marks.page(params[:page]).per(8)
     @book_mark = BookMark.new
+    @book_marks = current_user.book_marks.page(params[:page]).per(8)
   end
 
   def create
@@ -38,6 +40,13 @@ class BookMarksController < ApplicationController
   end
 
   private
+
+  def private_url
+    @book_mark = BookMark.find(params[:id])
+    unless @book_mark.user_id == current_user.id
+      redirect_to book_marks_path
+    end
+  end
 
   def book_mark_params
     params.require(:book_mark).permit(:name)

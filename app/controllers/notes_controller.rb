@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
-  
+
+  before_action :private_url, only: [:show, :edit, :update]
+
   def new
     @note = Note.new
   end
@@ -48,6 +50,13 @@ class NotesController < ApplicationController
   end
 
   private
+
+  def private_url
+    @note = Note.find(params[:id])
+    unless @note.user_id == current_user.id
+      redirect_to notes_path
+    end
+  end
 
   def note_params
     params.require(:note).permit(:opinion, :experience, :emotion, :value)

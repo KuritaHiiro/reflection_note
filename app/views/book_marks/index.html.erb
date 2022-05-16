@@ -17,7 +17,7 @@
             <% end %>
           </td>
         </tr>
-        <%= form_with model: @book_mark, url: book_marks_path, method: :post do |f| %>
+        <%= form_with model: @book_mark, url: book_marks_path, method: :post, local: true do |f| %>
         <tr>
           <td><%= f.text_field :name, class: "form-control" %></td>
           <td><%= f.submit "新規ブックマーク作成", class: "btn btn-outline-info" %></td>
